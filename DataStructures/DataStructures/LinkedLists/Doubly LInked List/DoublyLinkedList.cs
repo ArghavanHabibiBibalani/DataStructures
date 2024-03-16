@@ -1,16 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using DataStructures.LinkedLists.SinglyLinkedList;
+using System.Collections.Generic;
 
 namespace DataStructures.LinkedLists.DoblyLinkedList
 {
     public class DoublyLinkedList<E> : IDoublyLinkedList<E>
     {
-        private class Node<E>
+        private class DoublyNode<E>
         {
             private E element;
-            private Node<E> prev;
-            private Node<E> next;
+            private DoublyNode<E> prev;
+            private DoublyNode<E> next;
 
-            public Node(E e, Node<E> p, Node<E> n)
+            public DoublyNode(E e, DoublyNode<E> p, DoublyNode<E> n)
             {
                 element = e;
                 prev = p;
@@ -21,35 +22,35 @@ namespace DataStructures.LinkedLists.DoblyLinkedList
                 return element;
             }
 
-            public Node<E> GetNext()
+            public DoublyNode<E> GetNext()
             {
                 return next;
             }
 
-            public Node<E> GetPrev()
+            public DoublyNode<E> GetPrev()
             {
                 return prev;
             }
 
-            public void SetPrev(Node<E> p)
+            public void SetPrev(DoublyNode<E> p)
             {
                 prev = p;
             }
 
-            public void SetNext(Node<E> n)
+            public void SetNext(DoublyNode<E> n)
             {
                 next = n;
             }
         }
 
-        private Node<E> header;
-        private Node<E> trailer;
+        private DoublyNode<E> header;
+        private DoublyNode<E> trailer;
         private int size = 0;
 
         public DoublyLinkedList()
         {
-            header = new Node<E>(default(E), null, null);
-            trailer = new Node<E>(default(E), header, null);
+            header = new DoublyNode<E>(default(E), null, null);
+            trailer = new DoublyNode<E>(default(E), header, null);
             header.SetNext(trailer);
         }
 
@@ -106,9 +107,9 @@ namespace DataStructures.LinkedLists.DoblyLinkedList
             return RemoveNode(trailer.GetPrev());
         }
 
-        private void AddBetween(E e, Node<E> predecessor, Node<E> successor)
+        private void AddBetween(E e, DoublyNode<E> predecessor, DoublyNode<E> successor)
         {
-            Node<E> newNode = new Node<E>(e, predecessor, successor);
+            DoublyNode<E> newNode = new DoublyNode<E>(e, predecessor, successor);
 
             predecessor.SetNext(newNode);
             successor.SetPrev(newNode);
@@ -116,10 +117,10 @@ namespace DataStructures.LinkedLists.DoblyLinkedList
             size++;
         }
 
-        private E RemoveNode(Node<E> node)
+        private E RemoveNode(DoublyNode<E> node)
         {
-            Node<E> predecessor = node.GetPrev();
-            Node<E> successor = node.GetNext();
+            DoublyNode<E> predecessor = node.GetPrev();
+            DoublyNode<E> successor = node.GetNext();
 
             predecessor.SetNext(successor);
             successor.SetPrev(predecessor);
@@ -132,7 +133,7 @@ namespace DataStructures.LinkedLists.DoblyLinkedList
         public override string ToString()
         {
             string output = "{ ";
-            Node<E> current = header.GetNext();
+            DoublyNode<E> current = header.GetNext();
             for (int i = 0; i < size; i++)
             {
                 output += current.GetElement().ToString();
