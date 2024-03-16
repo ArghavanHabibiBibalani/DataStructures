@@ -2,7 +2,7 @@
 
 namespace DataStructures.LinkedLists
 {
-    internal class DoublyLinkedList<E>
+    public class DoublyLinkedList<E> : IDoublyLinkedList<E>
     {
         private class Node<E>
         {
@@ -16,27 +16,27 @@ namespace DataStructures.LinkedLists
                 prev = p;
                 next = n;
             }
-            public E getElement() 
-            { 
-                return element; 
+            public E GetElement()
+            {
+                return element;
             }
 
-            public Node<E> getNext()
+            public Node<E> GetNext()
             {
                 return next;
             }
 
-            public Node<E> getPrev()
+            public Node<E> GetPrev()
             {
                 return prev;
             }
 
-            public void setPrev(Node<E> p)
+            public void SetPrev(Node<E> p)
             {
                 prev = p;
             }
 
-            public void setNext(Node<E> n)
+            public void SetNext(Node<E> n)
             {
                 next = n;
             }
@@ -50,115 +50,100 @@ namespace DataStructures.LinkedLists
         {
             header = new Node<E>(default(E), null, null);
             trailer = new Node<E>(default(E), header, null);
-            header.setNext(trailer);
+            header.SetNext(trailer);
         }
 
-        public int getSize()
-        {
-            return size;
-        }
+        public int Size => size;
 
-        public bool isEmpty()
+        public bool IsEmpty()
         {
             return size == 0;
         }
-        
-        public E firstElement()
+
+        public E FirstElement()
         {
-            E first;
-
-            if (isEmpty())
+            if (IsEmpty())
             {
-                first = default(E);
+                return default(E);
             }
-            else
-            {
-                first = header.getNext().getElement();
-            }
-
-            return first;
+            return header.GetNext().GetElement();
         }
 
-        public E lastElement()
+        public E LastElement()
         {
-            E last ;
-
-            if (isEmpty())
+            if (IsEmpty())
             {
-                last = default(E);
+                return default(E);
             }
-            else
-            {
-                last = header.getPrev().getElement();
-            }
-
-            return last;
+            return trailer.GetPrev().GetElement();
         }
 
-        public void addFirst(E e)
+        public void AddFirst(E e)
         {
-            addBetween(e, header, header.getNext());
+            AddBetween(e, header, header.GetNext());
         }
 
-        public void addLast(E e)
+        public void AddLast(E e)
         {
-            addBetween(e, trailer.getPrev(), trailer);
+            AddBetween(e, trailer.GetPrev(), trailer);
         }
 
-        public E removeFirst()
+        public E RemoveFirst()
         {
-            E result;
-            if (isEmpty())
+            if (IsEmpty())
             {
-                result = default(E);
+                return default(E);
             }
-            else
-            {
-                result = removeNode(header.getNext());
-            }
-
-            return result;
-
+            return RemoveNode(header.GetNext());
         }
 
-        public E removeLast()
+        public E RemoveLast()
         {
-            E result;
-            if (isEmpty())
+            if (IsEmpty())
             {
-                result = default(E);
+                return default(E);
             }
-            else
-            {
-                result = removeNode(trailer.getPrev());
-            }
-
-            return result;
-
+            return RemoveNode(trailer.GetPrev());
         }
 
-        private void addBetween(E e, Node<E> preducessor,  Node<E> successor)
+        private void AddBetween(E e, Node<E> predecessor, Node<E> successor)
         {
-            Node<E> newNode = new Node<E>(e, preducessor, successor);
+            Node<E> newNode = new Node<E>(e, predecessor, successor);
 
-            preducessor.setNext(newNode);
-            successor.setPrev(newNode);
+            predecessor.SetNext(newNode);
+            successor.SetPrev(newNode);
 
             size++;
         }
 
-        private E removeNode(Node<E> node)
+        private E RemoveNode(Node<E> node)
         {
-            Node<E> preducessor = node.getPrev();
-            Node<E> successor = node.getNext();
+            Node<E> predecessor = node.GetPrev();
+            Node<E> successor = node.GetNext();
 
-            preducessor.setNext(successor);
-            successor.setPrev(preducessor);
+            predecessor.SetNext(successor);
+            successor.SetPrev(predecessor);
 
             size--;
 
-            return node.getElement();
+            return node.GetElement();
         }
 
+        public override string ToString()
+        {
+            string output = "{ ";
+            Node<E> current = header.GetNext();
+            for (int i = 0; i < size; i++)
+            {
+                output += current.GetElement().ToString();
+                if (i != size - 1)
+                {
+                    output += ", ";
+                }
+                current = current.GetNext();
+            }
+            output += " }";
+            return output;
+        }
     }
 }
