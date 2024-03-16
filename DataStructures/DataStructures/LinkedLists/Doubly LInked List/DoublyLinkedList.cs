@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DataStructures.LinkedLists
+namespace DataStructures.LinkedLists.DoblyLinkedList
 {
     public class DoublyLinkedList<E> : IDoublyLinkedList<E>
     {

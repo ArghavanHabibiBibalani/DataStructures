@@ -1,5 +1,5 @@
 ﻿
-using DataStructures.LinkedLists;
+using DataStructures.LinkedLists.DoblyLinkedList;
 namespace DataStructures
 {
     internal class Program

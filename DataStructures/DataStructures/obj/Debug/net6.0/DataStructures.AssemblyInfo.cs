@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DataStructures")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f2cecf98b5e322b5ba9a8b3c68d5330e67dce72")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+919447502fc9c42d3ddab4727913bb213e624ab8")]
 [assembly: System.Reflection.AssemblyProductAttribute("DataStructures")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DataStructures")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
