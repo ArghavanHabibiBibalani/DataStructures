@@ -1,4 +1,4 @@
-﻿namespace DataStructures.LinkedLists.DoblyLinkedList
+﻿namespace DataStructures.LinkedLists.DoublyLinkedList
 {
     public interface IDoublyLinkedList<E>
     {

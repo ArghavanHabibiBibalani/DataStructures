@@ -1,4 +1,4 @@
-﻿using DataStructures.Queue.ArrayBasedQueue;
+﻿using DataStructures.Queue.LinkedListeBasedQueue;
 namespace DataStructures
 {
     internal class Program
@@ -6,19 +6,6 @@ namespace DataStructures
 
         static void Main(string[] args)
         {
-            ArrayQueue<int> queue = new ArrayQueue<int>();
-
-            queue.Enqueue(1);
-            queue.Enqueue(2);
-            queue.Enqueue(3);
-            queue.Enqueue(4);
-            queue.Enqueue(5);
-            Console.WriteLine(queue.Size());
-            Console.WriteLine(queue.First());
-            queue.Dequeue();
-            Console.WriteLine(queue.Size());
-            Console.WriteLine(queue.First());
-
         }
     }
 

@@ -1,7 +1,7 @@
 ﻿using DataStructures.LinkedLists.SinglyLinkedList;
 using System.Collections.Generic;
 
-namespace DataStructures.LinkedLists.DoblyLinkedList
+namespace DataStructures.LinkedLists.DoublyLinkedList
 {
     public class DoublyLinkedList<E> : IDoublyLinkedList<E>
     {

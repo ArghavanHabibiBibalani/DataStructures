@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataStructures.LinkedLists.DoblyLinkedList;
+using DataStructures.LinkedLists.DoublyLinkedList;
 using DataStructures.LinkedLists.SinglyLinkedList;
 
 namespace DataStructures.Stacks.LinkedListeBasedStack
