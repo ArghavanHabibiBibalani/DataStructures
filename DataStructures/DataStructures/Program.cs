@@ -1,9 +1,4 @@
-﻿
-using DataStructures.LinkedLists.DoblyLinkedList;
-using DataStructures.LinkedLists.SinglyLinkedList;
-using DataStructures.Stacks.LinkedListeBasedStack;
-using DataStructures.Stacks.ArrayBasedStack;
-using DataStructures.Stacks;
+﻿using DataStructures.Queue.ArrayBasedQueue;
 namespace DataStructures
 {
     internal class Program
@@ -11,16 +6,19 @@ namespace DataStructures
 
         static void Main(string[] args)
         {
-            ArrayStack<int> s = new ArrayStack<int>();
+            ArrayQueue<int> queue = new ArrayQueue<int>();
 
-            s.Push(1);
-            s.Push(2);
-            s.Push(3);
-            s.Push(4);
-            s.Push(5);
-            Console.WriteLine(s.Size());
-            s.Pop();
-            Console.WriteLine(s.Size());
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+            queue.Enqueue(4);
+            queue.Enqueue(5);
+            Console.WriteLine(queue.Size());
+            Console.WriteLine(queue.First());
+            queue.Dequeue();
+            Console.WriteLine(queue.Size());
+            Console.WriteLine(queue.First());
+
         }
     }
 
