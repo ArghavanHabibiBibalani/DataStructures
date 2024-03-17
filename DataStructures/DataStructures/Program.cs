@@ -2,6 +2,8 @@
 using DataStructures.LinkedLists.DoblyLinkedList;
 using DataStructures.LinkedLists.SinglyLinkedList;
 using DataStructures.Stacks.LinkedListeBasedStack;
+using DataStructures.Stacks.ArrayBasedStack;
+using DataStructures.Stacks;
 namespace DataStructures
 {
     internal class Program
@@ -9,32 +11,16 @@ namespace DataStructures
 
         static void Main(string[] args)
         {
-            IDoublyLinkedList<int> list = new DoublyLinkedList<int>();
+            ArrayStack<int> s = new ArrayStack<int>();
 
-            list.AddLast(1);
-            list.AddLast(2);
-            list.AddLast(3);
-            list.AddLast(4);
-            Console.WriteLine(list.ToString());
-
-            LinkedStack<int> stack = new LinkedStack<int>(list);
-
-            stack.Push(11);
-            stack.Push(12);
-            stack.Push(13);
-
-            Console.WriteLine(stack.Size());
-
-            //ISinglyLinkedList<int> list = new SinglyLinkedList<int>();
-
-            //list.AddLast(1);
-            //list.AddFirst(1);
-            //list.AddLast(2);
-            //Console.WriteLine(list.ToString());
-            //list.RemoveFirst();
-            //Console.WriteLine(list.ToString());
-            //list.AddFirst(3);
-            //Console.WriteLine(list.ToString());
+            s.Push(1);
+            s.Push(2);
+            s.Push(3);
+            s.Push(4);
+            s.Push(5);
+            Console.WriteLine(s.Size());
+            s.Pop();
+            Console.WriteLine(s.Size());
         }
     }
 
