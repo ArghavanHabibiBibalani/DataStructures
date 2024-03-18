@@ -41,6 +41,11 @@ namespace DataStructures.LinkedLists.DoublyLinkedList
             {
                 next = n;
             }
+
+            public void SetElement(E e)
+            {
+                element = e;
+            }
         }
 
         private DoublyNode<E> header;
