@@ -17,17 +17,21 @@ namespace DataStructures.Graphs.AdjacencyMapGraph
             endPoints = new IVertex<V>[] { u, v };
             
         }
-        public E getElement() 
+        public E GetElement() 
         {
             return element;
         }
-        public IVertex<V>[] getEndpoints() 
+        public IVertex<V>[] GetEndpoints() 
         {
             return endPoints;
         }
-        public void setPosition(IPosition<IEdge<E>> p) 
+        public void SetPosition(IPosition<IEdge<E>> p) 
         {
             position = p;
+        }
+        public IPosition<IEdge<E>> GetPosition() 
+        {
+            return position;
         }
         public E Edge => element;
     }
