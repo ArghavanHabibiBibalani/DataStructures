@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataStructures.Graphs
 {
-    internal interface IEdge<E>
+    public interface IEdge<E>
     {
         E Edge { get; }
     }
