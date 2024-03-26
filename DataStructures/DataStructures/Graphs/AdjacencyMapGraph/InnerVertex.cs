@@ -1,4 +1,5 @@
 ﻿using DataStructures.Lists.PositionalLists;
+using DataStructures.Map;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,17 @@ namespace DataStructures.Graphs.AdjacencyMapGraph
     {
         private V element;
         private IPosition<IVertex<V>> position;
-        private Dictionary<InnerVertex<V, E>, List<IEdge<E>>> outGoing;
-        private Dictionary<InnerVertex<V, E>, List<IEdge<E>>> inComing;
+        private IMap<IVertex<V>, IEdge<E>> outGoing;
+        private IMap<IVertex<V>, IEdge<E>> inComing;
 
         public InnerVertex(V e, bool graphIsDirected)
         {
             element = e;
-            outGoing = new Dictionary<InnerVertex<V, E>, List<IEdge<E>>>();
+            outGoing = new Map<IVertex<V>, IEdge<E>>();
 
             if (graphIsDirected)
             {
-                inComing = new Dictionary<InnerVertex<V, E>, List<IEdge<E>>>();
+                inComing = new Map<IVertex<V>, IEdge<E>>();
             }
             else
             {
@@ -40,11 +41,11 @@ namespace DataStructures.Graphs.AdjacencyMapGraph
             return position; 
         }
 
-        public Dictionary<InnerVertex<V, E>, List<IEdge<E>>> GetOutgoing() 
+        public IMap<IVertex<V>, IEdge<E>> GetOutgoing() 
         {
             return outGoing; 
         }
-        public Dictionary<InnerVertex<V, E>, List<IEdge<E>>> GetIncoming() 
+        public IMap<IVertex<V>, IEdge<E>> GetIncoming() 
         { 
             return inComing; 
         }
