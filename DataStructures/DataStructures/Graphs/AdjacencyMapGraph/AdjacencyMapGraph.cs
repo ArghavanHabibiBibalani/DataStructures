@@ -130,6 +130,20 @@ namespace DataStructures.Graphs.AdjacencyMapGraph
         public void RemoveVertex(IVertex<V> v)
         {
             throw new NotImplementedException();
+/*
+            InnerVertex<V, E> vert = (InnerVertex<V, E>)v;
+
+            foreach (IEdge<E> e in vert.GetOutgoing().Values())
+            {
+                RemoveEdge(e);
+            }
+            foreach (IEdge<E> e in vert.GetIncoming().Values())
+            {
+                RemoveEdge(e);
+            }
+
+            vertices.Remove(vert.getPosition());
+*/
         }
 
         public IEnumerable<IVertex<V>> Vertices()
